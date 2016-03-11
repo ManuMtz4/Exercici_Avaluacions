@@ -1,3 +1,12 @@
+/*
+ * Avaluacio.java        1.0 Mar 10, 2016
+ *
+ * Copyright 2016 Manuel Martínez <ManuMtz@icloud.com> / <ManuMtz@hotmail.co.uk>
+ *
+ * This is free software, licensed under the GNU General Public License v3.
+ * See http://www.gnu.org/licenses/gpl.html for more information.
+ */
+
 import org.joda.time.DateTime;
 import org.joda.time.Days;
 
@@ -6,6 +15,7 @@ public class Avaluacio {
     protected String dataInici;
     protected String dataFi;
     
+    // Constructor de Evaluaciones
     public Avaluacio (String dataInici, String dataFi) throws DateInvalidException {
         if (validPeriod(dataInici,dataFi)) {
             this.dataInici = dataInici;
@@ -24,18 +34,6 @@ public class Avaluacio {
         return dataFi;
     }
     
-    public static boolean validPeriod(String dataInici, String dataFi) {
-        DateTime dI = JodaDT.parseDDMMYYYY(dataInici);
-        DateTime dF = JodaDT.parseDDMMYYYY(dataFi);
-        Days d = Days.daysBetween(dI, dF);
-        int days = d.getDays();
-        if (days >= 60) {
-            return true;
-        } else {
-            return false;
-        }
-    } 
-    
     protected void setData(String dataInici, String dataFi) throws DateInvalidException {
         if (validPeriod(dataInici,dataFi)) {
             this.dataInici = dataInici;
@@ -51,6 +49,40 @@ public class Avaluacio {
         String s = "Avaluació: "+this.getDataInici()+" - "+this.getDataFi()+"\nDurada: "+nombreDies()+" dies";
         return s;
     }
+    
+    /**
+     * 
+     * Retorna True o False, para validar si una evaluación es correcta y tiene un mínimo de días
+     * 
+     *  Fecha de inicio de la Evaluacion en String
+     * 
+     *  Fecha de finalización de la Evaluacion en String
+     *  
+     * @param  dataInici
+     * @param  dataFi
+     * @return  boolean
+     * 
+     */
+    
+    public static boolean validPeriod(String dataInici, String dataFi) {
+        DateTime dI = JodaDT.parseDDMMYYYY(dataInici);
+        DateTime dF = JodaDT.parseDDMMYYYY(dataFi);
+        Days d = Days.daysBetween(dI, dF);
+        int days = d.getDays();
+        if (days >= 30) {
+            return true;
+        } else {
+            return false;
+        }
+    } 
+    
+    /**
+     * 
+     * Retorna una cantidad de días que tiene la evaluación
+     *  
+     * @return  int
+     * 
+     */
     
     public int nombreDies() {
         DateTime dI = JodaDT.parseDDMMYYYY(this.getDataInici());
