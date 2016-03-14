@@ -69,11 +69,7 @@ public class Avaluacio {
         DateTime dF = JodaDT.parseDDMMYYYY(dataFi);
         Days d = Days.daysBetween(dI, dF);
         int days = d.getDays();
-        if (days >= 30) {
-            return true;
-        } else {
-            return false;
-        }
+        return days >= 30;
     } 
     
     /**

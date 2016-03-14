@@ -43,10 +43,7 @@ public class Curs {
      */
     
     public int nombreDies() {
-        int count = ava1.nombreDies();
-        count += ava2.nombreDies();
-        count += ava3.nombreDies();
-        return count;
+        return ava1.nombreDies()+ava2.nombreDies()+ava3.nombreDies();
     }
     
     /**
@@ -68,11 +65,7 @@ public class Curs {
         DateTime dIa = JodaDT.parseDDMMYYYY(dataIniciAfter);
         Days d = Days.daysBetween(dFb, dIa);
         int days = d.getDays();
-        if (days > 0) {
-            return true;
-        } else {
-            return false;
-        }
+        return days > 0;
     }
     
     public static void main(String args[]) throws DateInvalidException, CursInvalidException {
