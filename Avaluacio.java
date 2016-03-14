@@ -81,8 +81,8 @@ public class Avaluacio {
      */
     
     public int nombreDies() {
-        DateTime dI = JodaDT.parseDDMMYYYY(this.getDataInici());
-        DateTime dF = JodaDT.parseDDMMYYYY(this.getDataFi());
+        DateTime dI = JodaDT.parseDDMMYYYY(dataInici);
+        DateTime dF = JodaDT.parseDDMMYYYY(dataFi);
         Days d = Days.daysBetween(dI, dF);
         int days = d.getDays();
         return days;
