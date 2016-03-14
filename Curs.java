@@ -30,8 +30,7 @@ public class Curs {
     
     @Override
     public String toString() {
-        String s = ava1+"\n"+ava2+"\n"+ava3+"\n\nTotal dies: "+nombreDies();
-        return s;
+        return ava1+"\n"+ava2+"\n"+ava3+"\n\nTotal dies: "+nombreDies();
     }
     
     /**

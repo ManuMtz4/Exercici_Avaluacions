@@ -46,8 +46,7 @@ public class Avaluacio {
     
     @Override
     public String toString() {
-        String s = "Avaluació: "+dataInici+" - "+dataFi+"\nDurada: "+nombreDies()+" dies";
-        return s;
+        return "Avaluació: "+dataInici+" - "+dataFi+"\nDurada: "+nombreDies()+" dies";
     }
     
     /**
